@@ -11,9 +11,15 @@ struct node{
     node(int x): val(x),next(NULL) {}
 };
 
+单链表：
+
 访问O(n)
 插入O(1)
 删除O(n): 需要找到当前节点的上一个节点O(n)
+
+双链表：
+访问O(n)
+插入删除都是O(1)
 ```
 
 
@@ -51,3 +57,23 @@ struct node{
 
 
 ​	快慢指针一定要考虑特殊情况： 只要需要ptr->next, 一定要排除ptr为空的情况。
+
+
+
+```
+链表的反转问题:
+	1.特殊情况排除： 空指针和第二个为空，这两种都不用动。
+	
+	2. 初始化当前节点 ListNode *cur_node = head;
+	   初始化逆序头指针节点： head = null;
+	   
+	   while(cur_node)
+	   {
+           ListNode *next_node = cur_node->next;
+           cur_node->next = head;
+           head = cur_node;
+           cur_node = next_node;
+	   }
+	
+```
+
